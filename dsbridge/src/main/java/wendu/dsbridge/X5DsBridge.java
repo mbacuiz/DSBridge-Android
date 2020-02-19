@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.tencent.smtt.sdk.QbSdk;
 
-public class DsBridge {
+public class X5DsBridge {
 
     public static void init(Context context) {
         QbSdk.initX5Environment(context, new QbSdk.PreInitCallback() {
