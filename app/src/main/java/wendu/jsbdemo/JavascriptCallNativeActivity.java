@@ -11,7 +11,7 @@ public class JavascriptCallNativeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_js_call_native);
-        final DWebView dwebView= (DWebView) findViewById(R.id.webview);
+        final DWebView dwebView=(DWebView) findViewById(R.id.webview);
         // set debug mode
         DWebView.setWebContentsDebuggingEnabled(true);
         dwebView.addJavascriptObject(new JsApi(), null);

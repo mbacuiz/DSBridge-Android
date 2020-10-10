@@ -15,7 +15,7 @@ public class WrokWithFlyioTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wrok_with_flyio_test);
-        DWebView dWebView= (DWebView) findViewById(R.id.webview);
+        DWebView dWebView=(DWebView) findViewById(R.id.webview);
         dWebView.addJavascriptObject(new Object(){
 
             /**

@@ -2,8 +2,12 @@ package wendu.jsbdemo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebView;
 
 import org.json.JSONObject;
 
@@ -11,6 +15,8 @@ import wendu.dsbridge.DWebView;
 import wendu.dsbridge.OnReturnValue;
 
 public class CallJavascriptActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private static final String TAG = "CallJavascriptActivity";
 
     DWebView dWebView;
 
@@ -35,10 +41,18 @@ public class CallJavascriptActivity extends AppCompatActivity implements View.On
         getView(R.id.hasMethodAsynAddValue).setOnClickListener(this);
         getView(R.id.hasMethodAsynXX).setOnClickListener(this);
         DWebView.setWebContentsDebuggingEnabled(true);
-        dWebView= getView(R.id.webview);
-        dWebView.loadUrl("file:///android_asset/native-call-js.html");
+        dWebView = (DWebView) findViewById(R.id.webview);
+//        dWebView.loadUrl("file:///android_asset/native-call-js.html");
 
 
+        dWebView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onProgressChanged(WebView webView, int i) {
+                super.onProgressChanged(webView, i);
+                Log.d(TAG, "onProgressChanged: " + i);
+            }
+        });
+        dWebView.loadUrl("http://www.baidu.com");
     }
 
     void showToast(Object o) {
